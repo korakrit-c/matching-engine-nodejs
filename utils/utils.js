@@ -14,6 +14,10 @@ export const getMin = (obj) => {
     return BigNumber.min.apply(null, arr).toNumber() || null;
 }
 
+export const toNumber = (x) => {
+    return BigNumber(x).toNumber();
+}
+
 export const sum = (arr) => {
     return BigNumber.sum.apply(null, arr).toNumber();
 }

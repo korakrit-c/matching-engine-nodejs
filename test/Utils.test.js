@@ -23,4 +23,12 @@ describe('Utils', () => {
     it('Absolute (-0.99) should return 0.99', () => {
         expect(utils.abs(-0.99)).to.equal(0.99);
     });
+
+    it('toNumber ("10") should return 10', () => {
+        expect(utils.toNumber("10")).to.equal(10);
+    });
+
+    it('toNumber ("0.998") should return 0.998', () => {
+        expect(utils.toNumber("0.998")).to.equal(0.998);
+    });
 });
