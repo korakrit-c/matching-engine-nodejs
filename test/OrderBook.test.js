@@ -182,7 +182,7 @@ describe('MatchingEngine', () => {
         let ObjectJson = matchEngine.printOrder();
         
         // expected JsonObject to equal output.json
-        expect(JSON.stringify(ObjectJson)).to.equal(JSON.stringify(outputJson));
+        expect(ObjectJson).to.deep.equal(outputJson);
     });
 
     it('[Data Set #2] Validate the JsonObject from a function should be equal as output.json', () => {
@@ -204,7 +204,7 @@ describe('MatchingEngine', () => {
         let ObjectJson = matchEngine.printOrder();
         
         // expected JsonObject to equal output.json
-        expect(JSON.stringify(ObjectJson)).to.equal(JSON.stringify(outputJson));
+        expect(ObjectJson).to.deep.equal(outputJson);
     });
 
     it('[Data Set #3] Validate the JsonObject from a function should be equal as output.json', () => {
@@ -226,7 +226,7 @@ describe('MatchingEngine', () => {
         let ObjectJson = matchEngine.printOrder();
         
         // expected JsonObject to equal output.json
-        expect(JSON.stringify(ObjectJson)).to.equal(JSON.stringify(outputJson));
+        expect(ObjectJson).to.deep.equal(outputJson);
     });
 
     it('[Data Set #4] Validate the JsonObject from a function should be equal as output.json', () => {
@@ -248,6 +248,6 @@ describe('MatchingEngine', () => {
         let ObjectJson = matchEngine.printOrder();
         
         // expected JsonObject to equal output.json
-        expect(JSON.stringify(ObjectJson)).to.equal(JSON.stringify(outputJson));
+        expect(ObjectJson).to.deep.equal(outputJson);
     });
 });
