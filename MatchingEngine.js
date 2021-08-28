@@ -1,5 +1,5 @@
 import { OrderBook } from "./OrderBook.js";
-import { isEmptyObject, getMax, getMin, sum, minus, abs} from "./utils/utils.js";
+import { isEmptyObject, getMax, getMin, toNumber, sum, minus, abs } from "./utils/utils.js";
 
 export class MatchingEngine {
     orderBooks = {};
@@ -87,11 +87,33 @@ export class MatchingEngine {
     }
 
     printOrder() {
-        //let strOrderBookAtBuySide = JSON.stringify(this.orderBooks.buy)
-        //let strOrderBookAtSellSide = JSON.stringify(this.orderBooks.sell)
-        //console.log(strOrderBookAtBuySide);
-        //console.log(strOrderBookAtSellSide);
-        return this.orderBooks;
+        let orderVolume = new OrderBook();
+        let tempObjectArray = {};
+        let tempArray = [];
+
+        // buy side
+        tempObjectArray = Object.entries(this.orderBooks.buy).sort((a, b) => a[0]-b[0]).reverse();
+        tempObjectArray.forEach(([price, volume]) => {
+            volume = sum(volume);
+            price = toNumber(price);
+            tempArray.push({price, volume});
+        })
+        orderVolume.buy = tempArray;
+        tempObjectArray = {};
+        tempArray = [];
+
+        // sell side
+        tempObjectArray = Object.entries(this.orderBooks.sell).sort((a, b) => a[0]-b[0]);
+        tempObjectArray.forEach(([price, volume]) => {
+            volume = sum(volume);
+            price = toNumber(price);
+            tempArray.push({price, volume});
+        })
+        orderVolume.sell = tempArray;
+        tempObjectArray = {};
+        tempArray = [];
+
+        return orderVolume;
     }
 
 }
