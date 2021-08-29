@@ -22,7 +22,9 @@
   "homepage": "https://github.com/korakrit-c/matching-engine-nodejs#readme",
   "devDependencies": {
     "chai": "^4.3.4",
-    "mocha": "^9.1.0"
+    "mocha": "^9.1.0",
+    "gulp": "^4.0.2",
+    "sonarqube-scanner": "^2.8.1"
   },
   "dependencies": {
     "bignumber.js": "^9.0.1"
