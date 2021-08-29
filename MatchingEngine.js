@@ -14,33 +14,25 @@ export class MatchingEngine {
         if (command === "buy") {
             // get best price
             let bestPrice = getMin(orderBooks.sell)
-            if (bestPrice !== null && price >= bestPrice) {
-                while (bestPrice !== null && amount > 0 && price >= bestPrice) {
-                    let amountAtBestPrice = sum(orderBooks.sell[bestPrice]);
-                    let amountAtPrice = orderBooks.sell[bestPrice][0];
-                    if (abs(minus(amountAtBestPrice, amount)) > 0) {
-                        // trade order
-                        orderBooks.sell[bestPrice][0] = minus(amountAtPrice, amount)
-                        amount = minus(amount, amountAtPrice);
-                    }
-                    // delete order, if amount <= 0
-                    if (orderBooks.sell[bestPrice][0] <= 0) {
-                        orderBooks.sell[bestPrice].shift();
-                    }
-                    // delete price, if price has no order
-                    if (orderBooks.sell[bestPrice].length === 0) {
-                        delete orderBooks.sell[bestPrice];
-                    }
-                    bestPrice = getMin(orderBooks.sell);
+            while (bestPrice !== null && amount > 0 && price >= bestPrice) {
+                let amountAtBestPrice = sum(orderBooks.sell[bestPrice]);
+                let amountAtPrice = orderBooks.sell[bestPrice][0];
+                if (abs(minus(amountAtBestPrice, amount)) > 0) {
+                    // trade order
+                    orderBooks.sell[bestPrice][0] = minus(amountAtPrice, amount)
+                    amount = minus(amount, amountAtPrice);
                 }
-                if (amount > 0) {
-                    if (orderBooks.buy[price] == null) {
-                        orderBooks.buy[price] = [amount];
-                    } else {
-                        orderBooks.buy[price].push(amount);
-                    }
+                // delete order, if amount <= 0
+                if (orderBooks.sell[bestPrice][0] <= 0) {
+                    orderBooks.sell[bestPrice].shift();
                 }
-            } else {
+                // delete price, if price has no order
+                if (orderBooks.sell[bestPrice].length === 0) {
+                    delete orderBooks.sell[bestPrice];
+                }
+                bestPrice = getMin(orderBooks.sell);
+            }
+            if (amount > 0) {
                 if (orderBooks.buy[price] == null) {
                     orderBooks.buy[price] = [amount];
                 } else {
@@ -49,33 +41,25 @@ export class MatchingEngine {
             }
         } else if (command === "sell") {
             let bestPrice = getMax(orderBooks.buy)
-            if (bestPrice !== null && price <= bestPrice) {
-                while (bestPrice !== null && amount > 0 && price <= bestPrice) {
-                    let amountAtBestPrice = sum(orderBooks.buy[bestPrice]);
-                    let amountAtPrice = orderBooks.buy[bestPrice][0];
-                    if (abs(minus(amountAtBestPrice, amount)) > 0) {
-                        // trade order
-                        orderBooks.buy[bestPrice][0] = minus(amountAtPrice, amount)
-                        amount = minus(amount, amountAtPrice);
-                    }
-                    // delete order, if amount <= 0
-                    if (orderBooks.buy[bestPrice][0] <= 0) {
-                        orderBooks.buy[bestPrice].shift();
-                    }
-                    // delete price, if price has no order
-                    if (orderBooks.buy[bestPrice].length === 0) {
-                        delete orderBooks.buy[bestPrice];
-                    }
-                    bestPrice = getMax(orderBooks.buy);
+            while (bestPrice !== null && amount > 0 && price <= bestPrice) {
+                let amountAtBestPrice = sum(orderBooks.buy[bestPrice]);
+                let amountAtPrice = orderBooks.buy[bestPrice][0];
+                if (abs(minus(amountAtBestPrice, amount)) > 0) {
+                    // trade order
+                    orderBooks.buy[bestPrice][0] = minus(amountAtPrice, amount)
+                    amount = minus(amount, amountAtPrice);
                 }
-                if (amount > 0) {
-                    if (orderBooks.sell[price] == null) {
-                        orderBooks.sell[price] = [amount];
-                    } else {
-                        orderBooks.sell[price].push(amount);
-                    }
+                // delete order, if amount <= 0
+                if (orderBooks.buy[bestPrice][0] <= 0) {
+                    orderBooks.buy[bestPrice].shift();
                 }
-            } else {
+                // delete price, if price has no order
+                if (orderBooks.buy[bestPrice].length === 0) {
+                    delete orderBooks.buy[bestPrice];
+                }
+                bestPrice = getMax(orderBooks.buy);
+            }
+            if (amount > 0) {
                 if (orderBooks.sell[price] == null) {
                     orderBooks.sell[price] = [amount];
                 } else {
@@ -99,7 +83,6 @@ export class MatchingEngine {
             tempArray.push({price, volume});
         })
         orderVolume.buy = tempArray;
-        tempObjectArray = {};
         tempArray = [];
 
         // sell side
@@ -110,7 +93,6 @@ export class MatchingEngine {
             tempArray.push({price, volume});
         })
         orderVolume.sell = tempArray;
-        tempObjectArray = {};
         tempArray = [];
 
         return orderVolume;
