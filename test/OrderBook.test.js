@@ -50,7 +50,7 @@ describe('MatchingEngine', () => {
     it('[Data Set #1] Validate the volume of price should be equal as output.json', () => {
         const matchEngine = new MatchingEngine();
         // read file from input.json
-        let rawDataInput = fs.readFileSync('./data/1/input.json', 'utf8', (err, rawDataInput) => {});
+        let rawDataInput = fs.readFileSync('./data/1/input.json', 'utf8');
         let limitOrder = JSON.parse(rawDataInput);
 
         // add order and then calculate with matching engine
@@ -59,7 +59,7 @@ describe('MatchingEngine', () => {
         }
 
         // read file from output.json
-        let rawDataOutput = fs.readFileSync('./data/1/output.json', 'utf8', (err, rawDataOutput) => {});
+        let rawDataOutput = fs.readFileSync('./data/1/output.json', 'utf8');
         let outputJson = JSON.parse(rawDataOutput);
 
         // expected at buy side
@@ -79,7 +79,7 @@ describe('MatchingEngine', () => {
     it('[Data Set #2] Validate the volume of price should be equal as output.json', () => {
         const matchEngine = new MatchingEngine();
         // read file from input.json
-        let rawDataInput = fs.readFileSync('./data/2/input.json', 'utf8', (err, rawDataInput) => {});
+        let rawDataInput = fs.readFileSync('./data/2/input.json', 'utf8');
         let limitOrder = JSON.parse(rawDataInput);
 
         // add order and then calculate with matching engine
@@ -88,7 +88,7 @@ describe('MatchingEngine', () => {
         }
 
         // read file from output.json
-        let rawDataOutput = fs.readFileSync('./data/2/output.json', 'utf8', (err, rawDataOutput) => {});
+        let rawDataOutput = fs.readFileSync('./data/2/output.json', 'utf8');
         let outputJson = JSON.parse(rawDataOutput);
 
         // expected at buy side
@@ -108,7 +108,7 @@ describe('MatchingEngine', () => {
     it('[Data Set #3] Validate the volume of price should be equal as output.json', () => {
         const matchEngine = new MatchingEngine();
         // read file from input.json
-        let rawDataInput = fs.readFileSync('./data/3/input.json', 'utf8', (err, rawDataInput) => {});
+        let rawDataInput = fs.readFileSync('./data/3/input.json', 'utf8');
         let limitOrder = JSON.parse(rawDataInput);
 
         // add order and then calculate with matching engine
@@ -117,7 +117,7 @@ describe('MatchingEngine', () => {
         }
 
         // read file from output.json
-        let rawDataOutput = fs.readFileSync('./data/3/output.json', 'utf8', (err, rawDataOutput) => {});
+        let rawDataOutput = fs.readFileSync('./data/3/output.json', 'utf8');
         let outputJson = JSON.parse(rawDataOutput);
 
         // expected at buy side
@@ -137,7 +137,7 @@ describe('MatchingEngine', () => {
     it('[Data Set #4] Validate the volume of price should be equal as output.json', () => {
         const matchEngine = new MatchingEngine();
         // read file from input.json
-        let rawDataInput = fs.readFileSync('./data/4/input.json', 'utf8', (err, rawDataInput) => {});
+        let rawDataInput = fs.readFileSync('./data/4/input.json', 'utf8');
         let limitOrder = JSON.parse(rawDataInput);
 
         // add order and then calculate with matching engine
@@ -146,7 +146,7 @@ describe('MatchingEngine', () => {
         }
 
         // read file from output.json
-        let rawDataOutput = fs.readFileSync('./data/4/output.json', 'utf8', (err, rawDataOutput) => {});
+        let rawDataOutput = fs.readFileSync('./data/4/output.json', 'utf8');
         let outputJson = JSON.parse(rawDataOutput);
 
         // expected at buy side
@@ -166,7 +166,7 @@ describe('MatchingEngine', () => {
     it('[Data Set #1] Validate the JsonObject from a function should be equal as output.json', () => {
         const matchEngine = new MatchingEngine();
         // read file from input.json
-        let rawDataInput = fs.readFileSync('./data/1/input.json', 'utf8', (err, rawDataInput) => {});
+        let rawDataInput = fs.readFileSync('./data/1/input.json', 'utf8');
         let limitOrder = JSON.parse(rawDataInput);
 
         // add order and then calculate with matching engine
@@ -175,7 +175,7 @@ describe('MatchingEngine', () => {
         }
 
         // read file from output.json
-        let rawDataOutput = fs.readFileSync('./data/1/output.json', 'utf8', (err, rawDataOutput) => {});
+        let rawDataOutput = fs.readFileSync('./data/1/output.json', 'utf8');
         let outputJson = JSON.parse(rawDataOutput);
 
         // printOrder
@@ -188,7 +188,7 @@ describe('MatchingEngine', () => {
     it('[Data Set #2] Validate the JsonObject from a function should be equal as output.json', () => {
         const matchEngine = new MatchingEngine();
         // read file from input.json
-        let rawDataInput = fs.readFileSync('./data/2/input.json', 'utf8', (err, rawDataInput) => {});
+        let rawDataInput = fs.readFileSync('./data/2/input.json', 'utf8');
         let limitOrder = JSON.parse(rawDataInput);
 
         // add order and then calculate with matching engine
@@ -197,7 +197,7 @@ describe('MatchingEngine', () => {
         }
 
         // read file from output.json
-        let rawDataOutput = fs.readFileSync('./data/2/output.json', 'utf8', (err, rawDataOutput) => {});
+        let rawDataOutput = fs.readFileSync('./data/2/output.json', 'utf8');
         let outputJson = JSON.parse(rawDataOutput);
 
         // printOrder
@@ -210,7 +210,7 @@ describe('MatchingEngine', () => {
     it('[Data Set #3] Validate the JsonObject from a function should be equal as output.json', () => {
         const matchEngine = new MatchingEngine();
         // read file from input.json
-        let rawDataInput = fs.readFileSync('./data/3/input.json', 'utf8', (err, rawDataInput) => {});
+        let rawDataInput = fs.readFileSync('./data/3/input.json', 'utf8');
         let limitOrder = JSON.parse(rawDataInput);
 
         // add order and then calculate with matching engine
@@ -219,7 +219,7 @@ describe('MatchingEngine', () => {
         }
 
         // read file from output.json
-        let rawDataOutput = fs.readFileSync('./data/3/output.json', 'utf8', (err, rawDataOutput) => {});
+        let rawDataOutput = fs.readFileSync('./data/3/output.json', 'utf8');
         let outputJson = JSON.parse(rawDataOutput);
 
         // printOrder
@@ -232,7 +232,7 @@ describe('MatchingEngine', () => {
     it('[Data Set #4] Validate the JsonObject from a function should be equal as output.json', () => {
         const matchEngine = new MatchingEngine();
         // read file from input.json
-        let rawDataInput = fs.readFileSync('./data/4/input.json', 'utf8', (err, rawDataInput) => {});
+        let rawDataInput = fs.readFileSync('./data/4/input.json', 'utf8');
         let limitOrder = JSON.parse(rawDataInput);
 
         // add order and then calculate with matching engine
@@ -241,7 +241,7 @@ describe('MatchingEngine', () => {
         }
 
         // read file from output.json
-        let rawDataOutput = fs.readFileSync('./data/4/output.json', 'utf8', (err, rawDataOutput) => {});
+        let rawDataOutput = fs.readFileSync('./data/4/output.json', 'utf8');
         let outputJson = JSON.parse(rawDataOutput);
 
         // printOrder
