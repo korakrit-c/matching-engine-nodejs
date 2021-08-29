@@ -16,3 +16,8 @@ matchEngine.addOrder("buy", 90.394, 3.445);
 matchEngine.printOrder(); // {"buy":[{"price":90.394,"volume":3.445}],"sell":[{"price":100.003,"volume":2.4}]}
 
 ```
+
+## Unit Test
+```bash
+npm run test
+```
